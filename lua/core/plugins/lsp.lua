@@ -54,10 +54,10 @@ function M.config()
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
     u.bind(u.normal, "Jump to definition (#lsp)", {"<leader>ld", "gd"}, vim.lsp.buf.definition, bufopts)
     u.bind(u.normal, "Jump to declaration (#lsp)", {"<leader>lD", "gD"}, vim.lsp.buf.declaration, bufopts)
-    u.bind(u.normal, "Jump to type definition (#lsp)", "<leader>lt", vim.lsp.buf.type_definition, bufopts)
+    u.bind(u.normal, "Jump to type definition (#lsp)", { "<leader>lt ", "gt"}, vim.lsp.buf.type_definition, bufopts)
     u.bind(u.normal, "Show implementations list in quickfix window (#lsp)", {"<leader>li", "gi"}, vim.lsp.buf.implementation, bufopts)
     u.bind(u.normal, "Show references in the quickfix window (#lsp)", {"<leader>lr", "gr"}, vim.lsp.buf.references, bufopts)
-    u.bind(u.normal, "Show signature help in floating window (#lsp)", {"<leader>lk", "<C-k>"}, vim.lsp.buf.signature_help, bufopts)
+    u.bind(u.normal, "Show signature help in floating window (#lsp)", {"<leader>lk", "gs"}, vim.lsp.buf.signature_help, bufopts)
     u.bind(u.normal, "Show hover information in floating window (#lsp)", { "<leader>lK", "K" }, function()
       local winid = require("ufo").peekFoldedLinesUnderCursor()
       if not winid then
