@@ -69,12 +69,12 @@ function M.config()
     u.bind(u.normal, "Format buffer (#lsp)", "<leader>lf", function() vim.lsp.buf.format { async = true } end, bufopts)
 
     -- workspace
-    u.bind(u.normal, "Add buffer location as workspace folder (lsp)", "<leader>lw", vim.lsp.buf.add_workspace_folder, bufopts)
-    u.bind(u.normal, "Remove buffer location as workspace folder (lsp)", "<leader>lW", vim.lsp.buf.remove_workspace_folder, bufopts)
-    u.bind(u.normal, "List workspace folders (lsp)", "<leader>lL", function()
+    u.bind(u.normal, "Add buffer location as workspace folder (#lsp)", "<leader>lw", vim.lsp.buf.add_workspace_folder, bufopts)
+    u.bind(u.normal, "Remove buffer location as workspace folder 3(lsp)", "<leader>lW", vim.lsp.buf.remove_workspace_folder, bufopts)
+    u.bind(u.normal, "List workspace folders (#lsp)", "<leader>lL", function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, bufopts)
-    u.bind(u.normal, "Show workspace diagnostics in Telescope (lsp)", "<leader>lQ", "<cmd>Telescope diagnostics<cr>", bufopts)
+    u.bind(u.normal, "Show workspace diagnostics in Telescope (#lsp)", "<leader>lQ", "<cmd>Telescope diagnostics<cr>", bufopts)
   end
 
   -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
