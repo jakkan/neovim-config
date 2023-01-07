@@ -9,7 +9,7 @@ local M = {
     -- Additional textobjects baseed on treesitter
     "nvim-treesitter/nvim-treesitter-textobjects",
     -- Rainbow paranthesis
-    "p00f/nvim-ts-rainbow",
+    "cmrjones2014/nvim-ts-rainbow"
   },
 }
 
