@@ -5,7 +5,7 @@ local u = require("core/utils")
 -----------------
 
 -- Buffers (b)
-u.bind(u.normal, "Switch to last active buffer (#buffers)", { "<leader>bb", "<tab>" }, ":b#<CR>")
+u.bind(u.normal, "Switch to last active buffer (#buffers)", { "<leader>bb", "<BS>" }, ":b#<CR>")
 u.bind(u.normal, "Switch to next buffer in window by number (#buffers)", { "<leader>bn", "<leader>b]" }, ":bnext<CR>")
 u.bind(u.normal, "Switch to previous buffer in window by number (#buffers)", { "<leader>bp", "<leader>b[" }, ":bprev<CR>")
 u.bind(u.normal, "Open new buffer (#buffers)", "<leader>bN", ":enew<CR>")
