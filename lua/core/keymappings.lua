@@ -6,8 +6,8 @@ local u = require("core/utils")
 
 -- Buffers (b)
 u.bind(u.normal, "Switch to last active buffer (#buffers)", { "<leader>bb", "<BS>" }, ":b#<CR>")
-u.bind(u.normal, "Switch to next buffer in window by number (#buffers)", { "<leader>bn", "<leader>b]" }, ":bnext<CR>")
-u.bind(u.normal, "Switch to previous buffer in window by number (#buffers)", { "<leader>bp", "<leader>b[" }, ":bprev<CR>")
+u.bind(u.normal, "Switch to next buffer in window by number (#buffers)", { "<tab>", "<leader>b]" }, ":bnext<CR>")
+u.bind(u.normal, "Switch to previous buffer in window by number (#buffers)", { "<S-tab>", "<leader>b[" }, ":bprev<CR>")
 u.bind(u.normal, "Open new buffer (#buffers)", "<leader>bN", ":enew<CR>")
 u.bind(u.normal, "Delete buffer (#buffers)", "<leader>bd", ":Bdelete!<CR>")
 u.bind(u.normal, "Delete other buffers (#buffers)", "<leader>bD", ":%bd|e#|bd#<CR>")
@@ -61,9 +61,9 @@ u.bind(u.normal, "List keymappings (#commands)", "<leader>ck", ":Telescope keyma
 u.bind(u.normal, "List keymappings (#commands)", "<leader>cu", ":Telescope undo<CR>")
 
 -- Quickfix (q)
-u.bind(u.normal, "Next quickfix item (#quickfix)", "<leader>qn", "<cmd>cnext<cr>")
-u.bind(u.normal, "Previous quickfix item (#quickfix)", "<leader>qp", "<cmd>cprevious<cr>")
 u.bind(u.normal, "Toggle quickfix list (#quickfix)", "<leader>ql", "<cmd>lua require('core.utils.functions').toggle_qf()<cr>")
+u.bind(u.normal, "Next quickfix item (#quickfix)", "[q", "<cmd>cnext<cr>")
+u.bind(u.normal, "Previous quickfix item (#quickfix)", "]q", "<cmd>cprevious<cr>")
 
 -- Cancel search highlighting with ESC
 u.bind(u.normal, "Clear highlighting", "<esc>", ":nohlsearch<Bar>:echo<CR>")
