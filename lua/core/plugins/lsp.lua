@@ -115,6 +115,17 @@ function M.config()
     pyright = {},
     tailwindcss = {},
     yamlls = {},
+    pylsp = {
+      settings = {
+      -- configure plugins in pylsp
+        pylsp = {
+          plugins = {
+            pyflakes = {enabled = false},
+            pylint = {enabled = false},
+          },
+        },
+      },
+    },
     -- If you primarily use lua-language-server for Neovim, and want to provide completions, analysis, and location handling for plugins on runtime path, you can use the following settings, source: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
     sumneko_lua = {
       Lua = {
