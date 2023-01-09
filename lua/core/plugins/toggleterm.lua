@@ -21,7 +21,7 @@ function M.config()
   local set_terminal_keymaps = function()
     local opts = { noremap = true }
     local buf_map = vim.api.nvim_buf_set_keymap
-    -- buf_map(0, "t", "<esc>", [[<C-\><C-n>]], opts)
+    buf_map(0, "t", "<C-e>", [[<C-\><C-n>h]], opts)
     buf_map(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
     buf_map(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
     buf_map(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
