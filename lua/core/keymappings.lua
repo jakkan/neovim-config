@@ -88,14 +88,15 @@ u.bind(u.insert, "Move line up (#lines)", "<A-Up>", "<Esc>:m .-2<CR>==gi")
 u.bind(u.insert, "Move line down (#lines)", "<A-j>", "<Esc>:m .+1<CR>==gi")
 u.bind(u.insert, "Move line up (#lines)", "<A-k>", "<Esc>:m .-2<CR>==gi")
 
--- Readline-like keybindings (but with vim word limits), delete to beginning of line, Ctrl-u (already exists)
+-- Readline-like keybindings I want to be available in every application 
 u.bind(u.insert, "Jump to end of line", '<C-e>', "<Esc>$a")
 u.bind(u.insert, "Jump to beginning of line", '<C-a>', "<Esc>0i")
 u.bind(u.insert, "Jump word forward", '<A-f>', "<Esc>wi")
 u.bind(u.insert, "Jump word backward", '<A-b>', "<Esc>bi")
 u.bind(u.insert, "Delete to end of line", '<C-k>', "<Esc>ld$a")
+u.bind(u.insert, "Delete to beginning of line", '<C-u>', "<C-u>") -- this one exists by default, but putting it here for sake of completeness
 u.bind(u.insert, "Delete word forward", '<A-d>', "<Esc>ldwi")
-u.bind(u.insert, "Delete word backward", '<A-Backspace>', "<Esc>ldbi")
+u.bind(u.insert, "Delete word backward", '<A-Backspace>', "<C-w>") -- default keymapping is ctrl-w
 
 
 -----------------
