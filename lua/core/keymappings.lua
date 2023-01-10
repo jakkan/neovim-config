@@ -28,6 +28,9 @@ u.bind(u.normal, "Toggle file explorer (#files)", { "<leader>fe", "<leader>e" },
 u.bind(u.normal, "Grep file content (#files)", "<leader>fg", ":Telescope live_grep<CR>")
 u.bind(u.normal, "Open recent files (#files)", "<leader>fr", ":Telescope oldfiles<CR>")
 
+u.bind(u.normal, "Search in directory", "<leader>dg", "<cmd>Telescope dir live_grep<CR>")
+u.bind(u.normal, "Pick file in directory", "<leader>df", "<cmd>Telescope dir find_files<CR>")
+
 -- Windows (w)
 u.bind(u.normal, "Split window vertically (#windows)", "<leader>wv", ":split<CR>")
 u.bind(u.normal, "Split window horizontally (#windows)", "<leader>wh", ":vsplit<CR>")

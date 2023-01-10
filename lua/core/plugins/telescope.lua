@@ -11,6 +11,13 @@ local M = {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
     },
+    -- search in directory
+    {
+      "princejoogie/dir-telescope.nvim",
+      config = function()
+        require("dir-telescope").setup()
+      end
+    }
   },
 }
 
@@ -66,8 +73,8 @@ function M.config()
       set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
     },
   })
-  -- source: https://github.com/nvim-telescope/telescope-fzf-native.nvim
   require("telescope").load_extension("fzf")
+  require("telescope").load_extension("dir")
 end
 
 return M
