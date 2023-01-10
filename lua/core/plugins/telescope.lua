@@ -16,19 +16,10 @@ local M = {
 
 function M.config()
   local telescope = require("telescope")
-  local actions = require("telescope.actions")
-  local trouble_provider = require("trouble.providers.telescope")
+  local telescope_actions = require("telescope.actions")
+  local trouble_telescope_provider = require("trouble.providers.telescope")
+
   telescope.setup({
-    pickers = {
-      find_files = {
-        hidden = true,
-      },
-    },
-    live_grep = {
-      --@usage don't include the filename in the search results
-      only_sort_text = true,
-      theme = "dropdown",
-    },
     extensions = {
       fzf = {
         fuzzy = true, -- false will only do exact matching
@@ -37,17 +28,39 @@ function M.config()
         case_mode = "smart_case", -- or "ignore_case" or "respect_case"
       },
     },
+    pickers = {
+      find_files = {
+        find_command = {
+          "rg",
+          "--files",
+          "--hidden",
+          "--glob",
+          "!**/.git/*"
+        },
+      },
+    },
     defaults = {
-      -- default telescope bindings: https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
-      -- trouble bindings source: https://github.com/folke/trouble.nvim
+      vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--hidden",
+        "--trim", -- don't show indentation in search result
+        "--glob",
+        "!**/.git/*",
+      },
       mappings = {
         i = {
-          ["<esc>"] = actions.close,
+          ["<esc>"] = telescope_actions.close,
           ["<C-e>"] = { "<esc>", type = "command" },
-          ["<c-t>"] = trouble_provider.open_with_trouble,
+          ["<c-t>"] = trouble_telescope_provider.open_with_trouble,
         },
         n = {
-          ["<c-t>"] = trouble_provider.open_with_trouble,
+          ["<c-t>"] = trouble_telescope_provider.open_with_trouble,
         },
       },
       set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
