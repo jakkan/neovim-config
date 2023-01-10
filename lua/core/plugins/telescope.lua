@@ -37,18 +37,16 @@ function M.config()
         case_mode = "smart_case", -- or "ignore_case" or "respect_case"
       },
     },
-    -- source: https://github.com/folke/trouble.nvim
     defaults = {
+      -- default telescope bindings: https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
+      -- trouble bindings source: https://github.com/folke/trouble.nvim
       mappings = {
         i = {
-          -- https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
-          -- Close on first esc instead of going to normal mode
           ["<esc>"] = actions.close,
-          -- Trouble integration
+          ["<C-e>"] = { "<esc>", type = "command" },
           ["<c-t>"] = trouble_provider.open_with_trouble,
         },
         n = {
-          -- Trouble integration
           ["<c-t>"] = trouble_provider.open_with_trouble,
         },
       },
