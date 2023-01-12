@@ -115,17 +115,6 @@ function M.config()
     pyright = {},
     tailwindcss = {},
     yamlls = {},
-    pylsp = {
-      settings = {
-      -- configure plugins in pylsp
-        pylsp = {
-          plugins = {
-            pyflakes = {enabled = false},
-            pylint = {enabled = false},
-          },
-        },
-      },
-    },
     -- If you primarily use lua-language-server for Neovim, and want to provide completions, analysis, and location handling for plugins on runtime path, you can use the following settings, source: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
     sumneko_lua = {
       Lua = {
@@ -154,20 +143,19 @@ function M.config()
 
   mason_lspconfig.setup {
     ensure_installed = vim.tbl_keys(servers),
-    automatic_installation = true,
   }
 
   local lspconfig = require("lspconfig")
 
   mason_lspconfig.setup_handlers {
-      -- This is a default handler that will be called for each installed server (also for new servers that are installed during a session)
+    -- This is a default handler that will be called for each installed server (also for new servers that are installed during a session)
     function (server_name)
       lspconfig[server_name].setup {
         on_attach = on_attach,
         capabilities = capabilities,
         settings = servers[server_name],
       }
-    end,
+    end
   }
 
   -- Turn on lsp status information
