@@ -78,6 +78,12 @@ u.bind(u.normal, "Open url", "gx", ":call jobstart(['xdg-open', expand('<cfile>'
 u.bind(u.normal, "Improved down", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 u.bind(u.normal, "Improved up", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- zk (z)
+u.bind(u.normal, "New note (#zk)", "<leader>zn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>")
+u.bind(u.normal, "Find recent note (#zk)", "<leader>zr", "<Cmd>ZkNotes { sort = { 'modified' } }<CR>")
+u.bind(u.normal, "Find note (#zk)", "<leader>zf", "<Cmd>ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<CR>")
+u.bind(u.normal, "Find notes with tag (#zk)", "<leader>zt", "<Cmd>ZkTags<CR>")
+
 -----------------
 -- Insert mode --
 -----------------
