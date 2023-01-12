@@ -84,6 +84,9 @@ u.bind(u.normal, "Find recent note (#zk)", "<leader>zr", "<Cmd>ZkNotes { sort = 
 u.bind(u.normal, "Find note (#zk)", "<leader>zf", "<Cmd>ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<CR>")
 u.bind(u.normal, "Find notes with tag (#zk)", "<leader>zt", "<Cmd>ZkTags<CR>")
 
+-- Exit
+u.bind(u.normal, "Write and close all windows", "ZA", "<Cmd>:wqa<CR>")
+
 -----------------
 -- Insert mode --
 -----------------
